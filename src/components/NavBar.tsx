@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react"; // for hamburger icons
 import gsap from "gsap";
 
 const navItems = [
-  { name: "Home", path: "/home" },
+  { name: "Home", path: "/" },
   { name: "Register", path: "/register" },
   { name: "Update", path: "/update" },
   { name: "Verify", path: "/verify" },
