@@ -84,7 +84,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between p-4 bg-opacity-80 r rounded-xl ">
           {/* Logo */}
           <NavLink
-            to="/home"
+            to="/"
             className="text-primary font-zentry font-bold text-4xl hover:cursor-pointer transition duration-300 ease-in-out transform hover:scale-110"
             onClick={closeMenu}
           >
