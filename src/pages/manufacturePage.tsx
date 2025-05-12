@@ -35,6 +35,28 @@ const ManufacturePage = () => {
     }
   }, []);
 
+  // Add a function to handle copying the product address to clipboard
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text).then(
+      () => {
+        // Show success toast
+        toast.success('Address copied to clipboard!', {
+          position: "bottom-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          style: { background: "#d4edda", color: "#155724" },
+        });
+      },
+      (err) => {
+        console.error('Could not copy text: ', err);
+      }
+    );
+  };
+
   const handleRegister = async () => {
     try {
       if (!wallet.publicKey || !wallet.signTransaction) {
@@ -128,30 +150,45 @@ const ManufacturePage = () => {
 
           toast.success(
             <div>
-              <p>✅ Product "{name}" registered successfully!</p>
-              <p className="text-xs mt-1">Product Address: {productPDA.toString()}</p>
-              <p className="text-xs">
+              <div>✅ Product registered successfully!</div>
+              <div className="mt-2 text-xs font-semibold">Product Address:</div>
+              <div className="flex items-center gap-2 mt-1">
+                <span className="text-xs font-mono break-all">{productPDA.toString()}</span>
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent toast from closing
+                    copyToClipboard(productPDA.toString());
+                  }}
+                  className="p-1 bg-green-100 hover:bg-green-200 rounded-md"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </button>
+              </div>
+              <div className="mt-2 text-xs">
                 <a 
                   href={productLink} 
                   target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-blue-600 underline"
+                  rel="noopener noreferrer"
+                  className="text-blue-800 underline hover:text-blue-900"
                 >
-                  View Product Link
+                  View Product
                 </a>
-              </p>
-            </div>, 
+              </div>
+            </div>,
             {
               position: "bottom-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
+              autoClose: false,
+              closeOnClick: false,
               pauseOnHover: true,
               draggable: true,
               progress: undefined,
               style: { background: "#d4edda", color: "#155724" },
               className: 'mt-4 mr-4',
-            });
+            }
+          );
           
           setName("");
           setMake("");
