@@ -2,9 +2,9 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
-import { Buffer } from 'buffer';
 
-// Make Buffer available globally
+// Add Buffer polyfill for production
+import { Buffer } from 'buffer';
 window.Buffer = Buffer;
 
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
