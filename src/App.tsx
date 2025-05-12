@@ -13,18 +13,6 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 import { RoleProvider } from './context/RoleContext';
 import Navbar from "./components/NavBar";
 
-// 404 Page Component
-const NotFoundPage = () => (
-  <div className="flex flex-col items-center justify-center h-screen px-4 text-center">
-    <h1 className="text-9xl font-bold text-primary mb-4">404</h1>
-    <h2 className="text-4xl font-bold mb-6">Page Not Found</h2>
-    <p className="text-xl mb-8">The page you're looking for doesn't exist or has been moved.</p>
-    <a href="/home" className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">
-      Return Home
-    </a>
-  </div>
-);
-
 function App() {
   const network = WalletAdapterNetwork.Devnet;
   const endpoint = clusterApiUrl(network);
@@ -43,13 +31,10 @@ function App() {
                   <Navbar />
                   <main className="flex-grow">
                     <Routes>
-                      <Route path="/home" element={<HeroPage />} />
-                      <Route path="/" element={<Navigate to="/home" />} />
+                      <Route path="/" element={<HeroPage />} />
                       <Route path="/register" element={<ManufacturePage />} />
                       <Route path="/verify" element={<VerifyPage />} />
                       <Route path="/update" element={<UpdatePage />} />
-                      {/* 404 Route - This must be last */}
-                      <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                   </main>
                 </div>

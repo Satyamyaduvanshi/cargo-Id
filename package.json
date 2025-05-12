@@ -55,5 +55,13 @@
     "typescript-eslint": "^7.0.2",
     "util": "^0.12.5",
     "vite": "^5.1.4"
+  },
+  "overrides": {
+    "react-native": {
+      "@types/react": "^18.2.64"
+    }
+  },
+  "resolutions": {
+    "@types/react": "^18.2.64"
   }
 }
