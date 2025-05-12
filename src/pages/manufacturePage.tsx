@@ -201,14 +201,16 @@ const ManufacturePage = () => {
 
   return (
     <div className="flex flex-col lg:flex-row-reverse items-center justify-center min-h-screen bg-gray-50 py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:gap-12">
-      <div className="w-full lg:w-1/3 flex items-center justify-center mb-8 lg:mb-0">
-        <div className="w-full h-auto flex justify-center items-center overflow-hidden">
+      <div className="w-full lg:w-1/3 flex items-center justify-center mb-8 lg:mb-0 lg:pr-8">
+        <div className="w-full flex justify-center items-center">
           <img
             ref={imageRef}
             src="/boxs.png"
             alt="Product Visual"
-            className="w-auto h-auto max-w-full max-h-80 object-contain"
-            style={{ filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1))" }}
+            className="w-auto h-auto max-w-full max-h-[400px] object-contain animate-float"
+            style={{ 
+              filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15))"
+            }}
           />
         </div>
       </div>
@@ -219,68 +221,53 @@ const ManufacturePage = () => {
           <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 text-center">Create a new product entry on the blockchain supply chain</p>
 
           <div className="space-y-4 md:space-y-5">
-            <div className="relative flex items-center">
-              <div className="absolute left-3 flex items-center justify-center w-6 h-6 text-primary pointer-events-none">
-                <Package size={16} />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Product Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full pl-12 p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
-            <div className="relative flex items-center">
-              <div className="absolute left-3 flex items-center justify-center w-6 h-6 text-primary pointer-events-none">
-                <Tag size={16} />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Product Make/Brand"
                 value={make}
                 onChange={(e) => setMake(e.target.value)}
-                className="w-full pl-12 p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
-            <div className="relative flex items-center">
-              <div className="absolute left-3 flex items-center justify-center w-6 h-6 text-primary pointer-events-none">
-                <MapPin size={16} />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Origin Location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full pl-12 p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
-            <div className="relative flex items-center">
-              <div className="absolute left-3 flex items-center justify-center w-6 h-6 text-primary pointer-events-none">
-                <User size={16} />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Updater Address (Solana Public Key)"
                 value={updaterAddress}
                 onChange={(e) => setUpdaterAddress(e.target.value)}
-                className="w-full pl-12 p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
-            <div className="relative flex items-center">
-              <div className="absolute left-3 flex items-center justify-center w-6 h-6 text-primary pointer-events-none">
-                <Mail size={16} />
-              </div>
+            <div>
               <input
                 type="email"
                 placeholder="Customer Email"
                 value={customerEmail}
                 onChange={(e) => setCustomerEmail(e.target.value)}
-                className="w-full pl-12 p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
           </div>
@@ -311,3 +298,4 @@ const ManufacturePage = () => {
 };
 
 export default ManufacturePage;
+

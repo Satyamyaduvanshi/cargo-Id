@@ -131,7 +131,7 @@ export const AdminPage: React.FC = () => {
                   <label className="block text-sm font-medium text-gray-700">Role</label>
                   <select
                     value={selectedRole}
-                    onChange={(e) => setSelectedRole(e.target.value as Role)}
+                    onChange={(e) => setSelectedRole(e.target.value )}
                     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                   >
                     <option value="Admin">Admin</option>

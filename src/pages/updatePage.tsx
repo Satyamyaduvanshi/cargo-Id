@@ -202,13 +202,15 @@ const UpdatePage = () => {
   return (
     <div className="flex flex-col lg:flex-row-reverse items-center justify-center min-h-screen bg-gray-50 py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:gap-12">
       {/* Left side with image */}
-      <div className="w-full lg:w-1/3 flex items-center justify-center mb-8 lg:mb-0">
-        <div className="w-full h-auto flex justify-center items-center overflow-hidden">
+      <div className="w-full lg:w-1/3 flex items-center justify-center mb-8 lg:mb-0 lg:pr-8">
+        <div className="w-full flex justify-center items-center">
           <img
             src="/update.png"
             alt="Update Product Visual"
-            className="w-auto h-auto max-w-full max-h-80 object-contain"
-            style={{ filter: "drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1))" }}
+            className="w-auto h-auto max-w-full max-h-[400px] object-contain animate-float"
+            style={{ 
+              filter: "drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.15))"
+            }}
           />
         </div>
       </div>
@@ -221,14 +223,11 @@ const UpdatePage = () => {
 
           <div className="space-y-4 md:space-y-5">
             {allProducts.length > 0 ? (
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-primary">
-                  <Package size={16} className="flex-shrink-0 mr-2" />
-                </div>
+              <div>
                 <select
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
-                  className="pl-14 w-full p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all appearance-none bg-white text-sm md:text-base"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all appearance-none bg-white text-sm md:text-base"
                 >
                   <option value="">Select a product to update...</option>
                   {allProducts.map((product) => (
@@ -237,11 +236,6 @@ const UpdatePage = () => {
                     </option>
                   ))}
                 </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
-                  <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </div>
               </div>
             ) : (
               <div className="p-3 bg-yellow-50 border-l-4 border-yellow-500 text-yellow-700 rounded-r-md">
@@ -251,29 +245,23 @@ const UpdatePage = () => {
               </div>
             )}
 
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-primary">
-                <Package size={16} className="flex-shrink-0 mr-2" />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Product Address"
                 value={productAddress}
                 onChange={(e) => setProductAddress(e.target.value)}
-                className="pl-14 w-full p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-primary">
-                <MapPin size={16} className="flex-shrink-0 mr-2" />
-              </div>
+            <div>
               <input
                 type="text"
                 placeholder="Current Location"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="pl-14 w-full p-2.5 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-sm md:text-base"
               />
             </div>
 
