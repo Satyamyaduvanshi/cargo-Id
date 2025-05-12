@@ -3,7 +3,6 @@ import HeroPage from "./pages/heroPage";
 import ManufacturePage from "./pages/manufacturePage";
 import VerifyPage from "./pages/verifyPage";
 import UpdatePage from "./pages/updatePage";
-import { Navigate } from "react-router-dom";
 import TruckScene from "./components/TruckScene";
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
