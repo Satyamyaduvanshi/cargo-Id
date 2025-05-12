@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { web3 } from "@project-serum/anchor";
 import { PublicKey } from "@solana/web3.js";
 import Button from "../components/UI/Button";
 import { getProgram, getAllProducts } from "../utility/AnchorProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { PROGRAM_ID } from "../idl/supplychain";
-import { MapPin, Package, RotateCw, ArrowRightCircle, CheckCircle } from "lucide-react";
+import {  RotateCw, ArrowRightCircle, CheckCircle } from "lucide-react";
 
 interface Product {
   address: string;

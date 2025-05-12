@@ -5,8 +5,7 @@ import Button from "../components/UI/Button";
 import { getProgram, getAllProducts } from "../utility/AnchorProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { PROGRAM_ID } from "../idl/supplychain";
-import { Search, Package, AlertCircle, CheckCircle, ArrowRight, MapPin, User } from "lucide-react";
+import { Search, CheckCircle, AlertCircle } from "lucide-react";
 
 interface Product {
   address: string;

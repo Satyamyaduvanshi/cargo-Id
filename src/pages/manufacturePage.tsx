@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProductQRCode from "../components/ProductQRCode";
 import { sendProductRegistrationEmail } from "../utility/emailService";
 import { PROGRAM_ID } from "../idl/supplychain";
-import { Package, MapPin, Mail, ArrowRight, Check, User, Tag } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { gsap } from "gsap";
 
 const ManufacturePage = () => {

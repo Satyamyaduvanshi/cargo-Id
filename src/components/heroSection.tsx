@@ -1,4 +1,3 @@
-import TruckScene from "./TruckScene";
 import { useEffect, useState } from "react";
 
 const words = ["Solana speed.", "just one scan.", "blockchain transparency."];

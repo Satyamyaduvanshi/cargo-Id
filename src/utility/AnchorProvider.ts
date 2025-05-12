@@ -1,6 +1,7 @@
-import { Connection, PublicKey } from "@solana/web3.js";
+import { Connection } from "@solana/web3.js";
 import { AnchorProvider, Program, setProvider } from "@project-serum/anchor";
-import { IDL, PROGRAM_ID } from "../idl/supplychain";
+import { IDL } from "../idl/supplychain";
+import { PROGRAM_ID } from "../idl/supplychain";
 
 // Function to initialize the program
 export const getProgram = async (wallet: any) => {
