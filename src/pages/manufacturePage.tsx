@@ -13,7 +13,6 @@ import { gsap } from "gsap";
 
 const ManufacturePage = () => {
   const wallet = useWallet();
-  const { publicKey } = wallet;
   const [name, setName] = useState("");
   const [make, setMake] = useState("");
   const [location, setLocation] = useState("");
@@ -66,8 +65,8 @@ const ManufacturePage = () => {
       setError("");
 
       try {
-        // Get the program and connection
-        const { program, connection } = await getProgram(wallet);
+        // Get the program only
+        const { program } = await getProgram(wallet);
         
         // Calculate the PDA for the product
         const [productPDA] = await web3.PublicKey.findProgramAddress(

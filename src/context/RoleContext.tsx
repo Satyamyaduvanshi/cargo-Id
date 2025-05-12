@@ -1,8 +1,10 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Program, AnchorProvider, web3 } from '@project-serum/anchor';
-import { Role } from '../idl/supplychain';
 import { IDL, PROGRAM_ID } from '../idl/supplychain';
+
+// Define Role type manually since it's not exported from IDL
+type Role = "Admin" | "Manufacturer" | "Updater" | "Verifier";
 
 // Hardcoded admin address
 const ADMIN_ADDRESS = "F8wFKqeCasALkvJ5tyaJxvvoAeSv94R5DcTfBwR2qp61";

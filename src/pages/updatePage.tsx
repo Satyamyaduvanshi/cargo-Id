@@ -20,7 +20,7 @@ interface Product {
 
 const UpdatePage = () => {
   const wallet = useWallet();
-  const { publicKey, connect, signTransaction, connected } = wallet;
+  const { publicKey, connect, signTransaction } = wallet;
   const [productName, setProductName] = useState("");
   const [productAddress, setProductAddress] = useState("");
   const [location, setLocation] = useState("");
