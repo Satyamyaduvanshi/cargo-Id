@@ -35,21 +35,26 @@ const TruckImage = () => {
   return (
     <div 
       ref={truckContainerRef}
-      className="z-10"
-      style={{ 
-        position: 'absolute',
-        right: '230px',
-        bottom: '200px',
-        zIndex: 10,
-        pointerEvents: 'none'
-      }}
+      className="z-20 absolute pointer-events-none transition-all duration-700 ease-in-out
+        /* Mobile first approach */
+        w-[250px] right-1/2 top-[20%] translate-x-1/2
+        /* Small tablets */
+        sm:w-[300px] sm:top-[15%]
+        /* Tablets */
+        md:w-[400px] md:right-[100px] md:top-[10%] md:translate-x-0
+        /* Laptops */
+        lg:w-[500px] lg:right-[150px] lg:top-[5%]
+        /* Desktops */
+        xl:w-[600px] xl:right-[180px] xl:top-[5%]
+        /* Large Desktops */
+        2xl:w-[700px] 2xl:right-[230px] 2xl:top-[5%]"
     >
       <img 
         src="/truckImg.png" 
         alt="Truck" 
+        className="w-full h-auto object-contain animate-float transition-all duration-700 ease-in-out"
         style={{ 
-          width: '700px',
-          height: 'auto',
+          filter: "drop-shadow(0 25px 25px rgb(0 0 0 / 0.15))"
         }} 
       />
     </div>

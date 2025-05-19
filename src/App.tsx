@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeroPage from "./pages/heroPage";
 import ManufacturePage from "./pages/manufacturePage";
@@ -11,21 +12,46 @@ import { clusterApiUrl } from '@solana/web3.js';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import { RoleProvider } from './context/RoleContext';
 import Navbar from "./components/NavBar";
+import Onboarding from "./components/Onboarding";
+import OnboardingButton from "./components/OnboardingButton";
 
 const NotFoundPage = () => (
-  <div className="flex flex-col items-center justify-center h-screen px-4 text-center">
-    <h1 className="text-9xl font-bold text-primary mb-4">404</h1>
-    <h2 className="text-4xl font-bold mb-6">Page Not Found</h2>
-    <p className="text-xl mb-8">The page you're looking for doesn't exist or has been moved.</p>
-    <a href="/" className="px-6 py-3 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">
-      Return Home
-    </a>
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="text-center">
+      <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
+      <p className="text-xl text-gray-600 mb-8">Page not found</p>
+      <a
+        href="/"
+        className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+      >
+        Go Home
+      </a>
+    </div>
   </div>
 );
 
 function App() {
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    const onboardingCompleted = localStorage.getItem('onboardingCompleted');
+    if (!onboardingCompleted) {
+      setShowOnboarding(true);
+    }
+  }, []);
+
+  const handleOnboardingComplete = () => {
+    setShowOnboarding(false);
+  };
+
+  const handleRestartOnboarding = () => {
+    localStorage.removeItem('onboardingCompleted');
+    setShowOnboarding(true);
+  };
+
   const network = WalletAdapterNetwork.Devnet;
   const endpoint = clusterApiUrl(network);
+
 
   return (
     <ConnectionProvider endpoint={endpoint}>
@@ -49,6 +75,8 @@ function App() {
                     </Routes>
                   </main>
                 </div>
+                {showOnboarding && <Onboarding onComplete={handleOnboardingComplete} />}
+                {!showOnboarding && <OnboardingButton onClick={handleRestartOnboarding} />}
               </div>
             </Router>
           </RoleProvider>
